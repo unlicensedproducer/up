@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Landing Page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: Arial, sans-serif; overflow: hidden; }
+
+    #landing {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    video.bg-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      text-align: center;
+    }
+
+    .enter-button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background: #00ff99;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    #main {
+      display: none;
+      padding: 50px;
+      background: #f4f4f4;
+      height: 100vh;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="landing">
+    <video class="bg-video" autoplay muted loop>
+      <source src="animated_intro.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>Welcome to the Vibe</h1>
+      <button class="enter-button" onclick="enterSite()">Enter Site</button>
+    </div>
+  </div>
+
+  <div id="main">
+    <h1>Main Website</h1>
+    <p>This is your main content section. You can add galleries, shop links, artist bios, and more here.</p>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+</body>
+</html>
